@@ -1,0 +1,41 @@
+{
+  "name": "vite-plugin-watch-lazy-folder",
+  "version": "1.0.0",
+  "description": "A plugin for vite-app to watch lazy folder and trigge update",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "module",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunNeo/vite-plugin-watch-lazy-folder.git"
+  },
+  "keywords": [
+    "vite plugin",
+    "vite update lazy",
+    "vite lazy import",
+    "vite watch lazy"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "author": "NeoYung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YunNeo/vite-plugin-watch-lazy-folder/issues"
+  },
+  "homepage": "https://github.com/YunNeo/vite-plugin-watch-lazy-folder#readme",
+  "peerDependencies": {
+    "vite": ">= 2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "typescript": "^4.2.4",
+    "vite": "^2.2.4"
+  },
+  "dependencies": {}
+}
