@@ -30,7 +30,11 @@ function touch(path: string) {
   }
 }
 
-
+function isPathEqualOrContains(dir: string, folder: string) {
+  let replaced = dir.replace(folder, '');
+  let cuted = dir.substr(folder.length);
+  return replaced === cuted;
+}
 export default function watchLazyFolder(watchList: WatchConfig[]): Plugin {
   let _watchList: WatchConfig[] = []
   const recentAddMap = new Map<string, boolean>();
@@ -49,7 +53,7 @@ export default function watchLazyFolder(watchList: WatchConfig[]): Plugin {
 
       server.watcher.on('add', function (path) {
         let obj = nodePath.parse(path);
-        if (_watchList.some(w => w.folder === obj.dir)) {
+        if (_watchList.some(w => isPathEqualOrContains(obj.dir, w.folder))) {
           recentAddMap.set(path, false);
         }
       });
@@ -61,7 +65,7 @@ export default function watchLazyFolder(watchList: WatchConfig[]): Plugin {
           || !recentAddMap.has(path)
         ) return;
 
-        let target = _watchList.find(w => w.folder == nodePath.parse(path).dir);
+        let target = _watchList.find(w => isPathEqualOrContains(nodePath.parse(path).dir, w.folder));
         if (!target) return;
 
         console.log('\x1B[36m%s\x1B[37m%s', `[${PLUGIN_NAME}]`, ' new file detected');

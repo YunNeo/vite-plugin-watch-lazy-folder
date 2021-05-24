@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-watch-lazy-folder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin for vite-app to watch lazy folder and trigge update",
   "files": [
     "dist"
